@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import frame1 from "../assets/frame1.png";
 import frame2 from "../assets/frame2.png";
@@ -37,12 +38,14 @@ const Hero = () => {
           </p>
         </div>
         <div className="flex gap-[10px] items-center w-[210px] h-[50px] bg-[#974fd0] rounded-[8px] px-[25px] py-[10px]">
-          <button className="text-[#faf9fb] font-[500] text-[24px]">
-            Go to My Task
-          </button>
+          <Link to={"/alltask"}>
+            <button className="text-[#faf9fb] font-[500] text-[24px] cursor-pointer">
+              Go to My Task
+            </button>
+          </Link>
         </div>
       </div>
-      {/* image dic */}
+      {/* image div */}
       <div className="w-[419px] h-[397px]">
         <img
           src={images[currentImage]}
