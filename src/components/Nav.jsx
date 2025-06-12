@@ -10,26 +10,20 @@ const Nav = () => {
         {/* logo */}
         <Link to={"/"}>
           <div>
-            <a href="">
-              <img src={dashlogo} alt="logo" />
-            </a>
+            <img src={dashlogo} alt="logo" />
           </div>
         </Link>
         {/* links */}
         <div className="w-[310px] flex gap-10 items-center">
-          <Link>
-            <div>
-              <a href="#" className="text-[22px] font-[500] text-[#292929]">
-                New Task
-              </a>
+          <Link to={"/newtask"}>
+            <div className="text-[22px] font-[500] text-[#292929]">
+              New Task
             </div>
           </Link>
           {/* all task */}
-          <Link to={'/alltask'}>
-            <div>
-              <a href="#" className="text-[22px] font-[500] text-[#292929]">
-                All Task
-              </a>
+          <Link to={"/alltask"}>
+            <div className="text-[22px] font-[500] text-[#292929]">
+              All Task
             </div>
           </Link>
           <div className="border-[3px] border-[#292929] rounded-full ">

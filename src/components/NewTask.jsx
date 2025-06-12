@@ -1,14 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import dashlogo from "../assets/logodash.png";
 import pic from "../assets/pic.jpg";
-import AllTask from "./AllTask.jsx";
-import { IoAdd } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { MdOutlineArrowBackIos } from "react-icons/md";
+import NewTaskForm from "./NewTaskForm";
 
-const GotoMyTask = () => {
+const NewTask = () => {
   return (
     <div>
-      {/* nav session */}
       <div id="top" className="w-full border-[0.5px] border-[#b8b6b6]">
         <div className="w-[1100px] p-[10px] mx-auto flex justify-between items-center">
           {/* logo */}
@@ -20,9 +19,9 @@ const GotoMyTask = () => {
           {/* links */}
 
           <div className="w-[188px] flex items-center justify-between">
-            <Link to={"/newtask"}>
+            <Link to={"/alltask"}>
               <div className="text-[22px] font-[500] text-[#292929]">
-                New Task
+                All Task
               </div>
             </Link>
 
@@ -36,22 +35,26 @@ const GotoMyTask = () => {
           </div>
         </div>
       </div>
-
-      {/* hero section */}
-      <div className="w-[1101px] mx-auto flex justify-between my-10">
-        <div className="w-[191px]">
-          <h1 className="text-[50px] text-[#292929] font-[500]">My Task</h1>
-        </div>
-        <Link to={"/newtask"}>
-          <div className="mt-5">
-            <button className="text-[#974fd0] flex gap-2 items-center cursor-pointer">
-              <IoAdd size={"24px"} />
-              <p className="text-[24px]">Add New Task</p>
-            </button>
+      {/* hero */}
+      <div className="w-[1083px] mx-auto mt-10">
+        <div className="flex items-center justify-between w-[260px]">
+          <div className="w-[40px] h-[40px]">
+            <Link to={"/alltask"}>
+              <MdOutlineArrowBackIos
+                className="w-full h-full"
+                color={"#292929"}
+              />
+            </Link>
           </div>
-        </Link>
+          <div className="w-[200px]">
+            <h1 className="font-[500] text-[50px] text-[#292929]">New Task</h1>
+          </div>
+        </div>
+        <div>
+          <NewTaskForm />
+        </div>
       </div>
-      <AllTask />
+      {/* back to top */}
       <div className="w-[128px] mx-auto my-10">
         <a
           href="#top"
@@ -64,4 +67,4 @@ const GotoMyTask = () => {
   );
 };
 
-export default GotoMyTask;
+export default NewTask;
