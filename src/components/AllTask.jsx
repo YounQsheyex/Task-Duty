@@ -5,6 +5,7 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { axiosInstance } from "../../utils/axiosIntance.js";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const AllTask = () => {
   const [tasks, setTasks] = useState([]);
@@ -33,6 +34,7 @@ const AllTask = () => {
     try {
       const response = await axiosInstance.delete(`api/task/deleteTask/${id}`);
       console.log(response);
+      toast.success("Task deleted successfully!");
       window.location.reload();
     } catch (error) {
       console.log(error);

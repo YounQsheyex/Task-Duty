@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { axiosInstance } from "../../utils/axiosIntance";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const NewTaskForm = () => {
   const redirect = useNavigate();
@@ -22,13 +23,15 @@ const NewTaskForm = () => {
         priority,
       });
       console.log(response.data);
-      redirect("/alltask");
+      toast.success("Task created successfully!");
+      redirect("/allTask");
       // const { data } = response;
       // setTitle(data.title);
       // setDescription(data.description);
       // setPriority(data.priority);
     } catch (error) {
       console.log(error);
+      toast.error("Task already exists!");
     } finally {
       setIsSubmitting(false);
     }

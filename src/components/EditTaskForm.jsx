@@ -4,13 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { axiosInstance } from "../../utils/axiosIntance";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const EditTaskForm = () => {
   const redirect = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { id } = useParams();
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [priority, setPriority] = useState();
 
   const fetchTask = async () => {
@@ -40,6 +41,7 @@ const EditTaskForm = () => {
         priority,
       });
       console.log(response.data);
+      toast.success("Task updated successfully!");
       redirect("/alltask");
       // const { data } = response;
       // setTitle(data.title);
