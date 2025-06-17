@@ -96,7 +96,7 @@ const NewTaskForm = () => {
         <div className="w-[1000px] hn-[84px] bg-[#974fd0] px-[25px] py-[10px] rounded-[8px] flex justify-center mt-15 cursor-pointer">
           <button
             disabled={isSubmitting}
-            className="text-[35px] font-[500] text-[#faf9fb]"
+            className="text-[35px] font-[500] text-[#faf9fb] cursor-pointer"
           >
             Done
           </button>

@@ -37,7 +37,9 @@ const AllTask = () => {
       const response = await axiosInstance.delete(`api/task/deleteTask/${id}`);
       console.log(response);
       toast.success("Task deleted successfully!");
-      redirect("/allTask");
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
     } catch (error) {
       console.log(error);
     }
@@ -66,7 +68,7 @@ const AllTask = () => {
                 </div>
                 <div className="flex gap-5 items-center">
                   <Link to={`/editTask/${task._id}`}>
-                    <button className="w-[126px] h-[50px] flex items-center gap-[10px] bg-[#974fd0] px-[25px] py-[10px] rounded-[8px]">
+                    <button className="w-[126px] h-[50px] flex items-center gap-[10px] bg-[#974fd0] px-[25px] py-[10px] rounded-[8px] cursor-pointer">
                       <FiEdit color="#faf9fb" />
                       <p className="text-[24px] font-[500] text-[#faf9fb]">
                         Edit
@@ -75,7 +77,7 @@ const AllTask = () => {
                   </Link>
                   <button
                     onClick={(e) => handleDelete(task._id)}
-                    className="w-[151px] h-[50px] flex items-center gap-[10px] border-[1px] border-[#974fd0] rounded-[8px] px-[25px] py-[10px]"
+                    className="w-[151px] h-[50px] flex items-center gap-[10px] border-[1px] border-[#974fd0] rounded-[8px] px-[25px] py-[10px] cursor-pointer"
                   >
                     <RiDeleteBin5Line color="#974fd0" />
                     <p className="text-[24px] text-[#974fd0] font-[500]">
