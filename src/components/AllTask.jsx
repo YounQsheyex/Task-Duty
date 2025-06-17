@@ -63,7 +63,7 @@ const AllTask = () => {
                   </h1>
                 </div>
                 <div className="flex gap-5 items-center">
-                  <Link to={`/edit/${task._id}`}>
+                  <Link to={`/editTask/${task._id}`}>
                     <button className="w-[126px] h-[50px] flex items-center gap-[10px] bg-[#974fd0] px-[25px] py-[10px] rounded-[8px]">
                       <FiEdit color="#faf9fb" />
                       <p className="text-[24px] font-[500] text-[#faf9fb]">

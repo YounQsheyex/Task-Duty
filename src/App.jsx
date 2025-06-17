@@ -13,7 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/allTask" element={<ViewTask />} />
         <Route path="/newTask" element={<NewTask />} />
-        <Route path="/edit/:id" element={<EditTask />} />
+        <Route path="/editTask/:id" element={<EditTask />} />
       </Routes>
     </Router>
   );
