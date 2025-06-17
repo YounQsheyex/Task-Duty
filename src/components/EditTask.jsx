@@ -19,7 +19,7 @@ const EditTask = () => {
           {/* links */}
 
           <div className="w-[188px] flex items-center justify-between">
-            <Link to={"/alltask"}>
+            <Link to={"/allTask"}>
               <div className="text-[22px] font-[500] text-[#292929]">
                 All Task
               </div>
@@ -39,7 +39,7 @@ const EditTask = () => {
       <div className="w-[1083px] mx-auto mt-10">
         <div className="flex items-center justify-between w-[260px]">
           <div className="w-[40px] h-[40px]">
-            <Link to={"/alltask"}>
+            <Link to={"/allTask"}>
               <MdOutlineArrowBackIos
                 className="w-full h-full"
                 color={"#292929"}
