@@ -76,7 +76,7 @@ const AllTask = () => {
                     </button>
                   </Link>
                   <button
-                    onClick={(e) => handleDelete(task._id)}
+                    onClick={() => handleDelete(task._id)}
                     className="w-[151px] h-[50px] flex items-center gap-[10px] border-[1px] border-[#974fd0] rounded-[8px] px-[25px] py-[10px] cursor-pointer"
                   >
                     <RiDeleteBin5Line color="#974fd0" />
