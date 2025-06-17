@@ -38,7 +38,7 @@ const Hero = () => {
           </p>
         </div>
         <div className="flex gap-[10px] items-center w-[210px] h-[50px] bg-[#974fd0] rounded-[8px] px-[25px] py-[10px]">
-          <Link to={"/alltask"}>
+          <Link to={"/allTask"}>
             <button className="text-[#faf9fb] font-[500] text-[24px] cursor-pointer">
               Go to My Task
             </button>

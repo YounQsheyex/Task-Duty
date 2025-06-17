@@ -15,13 +15,13 @@ const Nav = () => {
         </Link>
         {/* links */}
         <div className="w-[310px] flex gap-10 items-center">
-          <Link to={"/newtask"}>
+          <Link to={"/newTask"}>
             <div className="text-[22px] font-[500] text-[#292929]">
               New Task
             </div>
           </Link>
           {/* all task */}
-          <Link to={"/alltask"}>
+          <Link to={"/allTask"}>
             <div className="text-[22px] font-[500] text-[#292929]">
               All Task
             </div>
