@@ -6,8 +6,10 @@ import { Link } from "react-router-dom";
 import { axiosInstance } from "../../utils/axiosIntance.js";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const AllTask = () => {
+  const redirect = useNavigate();
   const [tasks, setTasks] = useState([]);
   const [title, setTitle] = useState([]);
   const [description, setDescription] = useState([]);
@@ -35,7 +37,7 @@ const AllTask = () => {
       const response = await axiosInstance.delete(`api/task/deleteTask/${id}`);
       console.log(response);
       toast.success("Task deleted successfully!");
-      window.location.reload();
+      redirect("/allTask");
     } catch (error) {
       console.log(error);
     }
