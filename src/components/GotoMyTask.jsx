@@ -20,7 +20,7 @@ const GotoMyTask = () => {
           {/* links */}
 
           <div className="w-[188px] flex items-center justify-between">
-            <Link to={"/newtask"}>
+            <Link to={"/newTask"}>
               <div className="text-[22px] font-[500] text-[#292929]">
                 New Task
               </div>
@@ -42,7 +42,7 @@ const GotoMyTask = () => {
         <div className="w-[191px]">
           <h1 className="text-[50px] text-[#292929] font-[500]">My Task</h1>
         </div>
-        <Link to={"/newtask"}>
+        <Link to={"/newTask"}>
           <div className="mt-5">
             <button className="text-[#974fd0] flex gap-2 items-center cursor-pointer">
               <IoAdd size={"24px"} />

@@ -16,7 +16,7 @@ const EditTaskForm = () => {
 
   const fetchTask = async () => {
     try {
-      const response = await axiosInstance.get("api/task/singleTask/" + id);
+      const response = await axiosInstance.get("/task/singleTask/" + id);
       console.log(response.data);
       setTitle(response.data.title);
       setDescription(response.data.description);
@@ -35,7 +35,7 @@ const EditTaskForm = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await axiosInstance.patch(`api/task/editTask/${id}`, {
+      const response = await axiosInstance.patch(`/task/editTask/${id}`, {
         title,
         description,
         priority,

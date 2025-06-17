@@ -17,7 +17,7 @@ const AllTask = () => {
 
   const fetchTasks = async () => {
     try {
-      const response = await axiosInstance.get("api/task/allTask");
+      const response = await axiosInstance.get("/task/allTask");
       const { data } = response;
       setTasks(data);
       setTitle(data.title);
@@ -34,7 +34,7 @@ const AllTask = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axiosInstance.delete(`api/task/deleteTask/${id}`);
+      const response = await axiosInstance.delete(`/task/deleteTask/${id}`);
       console.log(response);
       toast.success("Task deleted successfully!");
       setTimeout(() => {
