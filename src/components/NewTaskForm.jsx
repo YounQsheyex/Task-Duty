@@ -17,7 +17,7 @@ const NewTaskForm = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await axiosInstance.post("api/task/newTask", {
+      const response = await axiosInstance.post("/task/newTask", {
         title,
         description,
         priority,
