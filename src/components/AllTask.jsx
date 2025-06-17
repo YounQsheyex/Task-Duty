@@ -3,14 +3,48 @@ import tasks from "../../data.js";
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { axiosInstance } from "../../utils/axiosIntance.js";
+import { useEffect, useState } from "react";
 
 const AllTask = () => {
+  const [tasks, setTasks] = useState([]);
+  const [title, setTitle] = useState([]);
+  const [description, setDescription] = useState([]);
+  const [priority, setPriority] = useState([]);
+
+  const fetchTasks = async () => {
+    try {
+      const response = await axiosInstance.get("api/task/allTask");
+      const { data } = response;
+      setTasks(data);
+      setTitle(data.title);
+      setDescription(data.description);
+      setPriority(data.priority);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchTasks();
+  }, []);
+
+  const handleDelete = async (id) => {
+    try {
+      const response = await axiosInstance.delete(`api/task/deleteTask/${id}`);
+      console.log(response);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="flex flex-col gap-15 items-center w-[1100px] mt-5 mx-auto">
-      {tasks.map((task, index) => {
+      {tasks.map((task, id) => {
         return (
           <div
-            key={index}
+            key={id}
             className="w-[1100px] mx-auto  border-[0.5px] border-[#b8b6b6] rounded-[10px]"
           >
             <div className="w-[1076px] px-[12px] py-[20px]">
@@ -27,7 +61,7 @@ const AllTask = () => {
                   </h1>
                 </div>
                 <div className="flex gap-5 items-center">
-                  <Link to={"/edit"}>
+                  <Link to={`/edit/${task._id}`}>
                     <button className="w-[126px] h-[50px] flex items-center gap-[10px] bg-[#974fd0] px-[25px] py-[10px] rounded-[8px]">
                       <FiEdit color="#faf9fb" />
                       <p className="text-[24px] font-[500] text-[#faf9fb]">
@@ -35,7 +69,10 @@ const AllTask = () => {
                       </p>
                     </button>
                   </Link>
-                  <button className="w-[151px] h-[50px] flex items-center gap-[10px] border-[1px] border-[#974fd0] rounded-[8px] px-[25px] py-[10px]">
+                  <button
+                    onClick={(e) => handleDelete(task._id)}
+                    className="w-[151px] h-[50px] flex items-center gap-[10px] border-[1px] border-[#974fd0] rounded-[8px] px-[25px] py-[10px]"
+                  >
                     <RiDeleteBin5Line color="#974fd0" />
                     <p className="text-[24px] text-[#974fd0] font-[500]">
                       Delete

@@ -11,9 +11,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/alltask" element={<ViewTask />} />
-        <Route path="/newtask" element={<NewTask />} />
-        <Route path="/edit" element={<EditTask />} />
+        <Route path="/allTask" element={<ViewTask />} />
+        <Route path="/newTask" element={<NewTask />} />
+        <Route path="/edit/:id" element={<EditTask />} />
       </Routes>
     </Router>
   );

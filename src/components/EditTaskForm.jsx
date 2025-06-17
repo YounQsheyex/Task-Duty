@@ -1,10 +1,60 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { axiosInstance } from "../../utils/axiosIntance";
+import { useParams } from "react-router-dom";
 
 const EditTaskForm = () => {
+  const redirect = useNavigate();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { id } = useParams();
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [priority, setPriority] = useState();
+
+  const fetchTask = async () => {
+    try {
+      const response = await axiosInstance.get("api/task/singleTask/" + id);
+      console.log(response.data);
+      setTitle(response.data.title);
+      setDescription(response.data.description);
+      setPriority(response.data.priority);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchTask();
+  }, []);
+
+  const editTask = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await axiosInstance.patch(`api/task/editTask/${id}`, {
+        title,
+        description,
+        priority,
+      });
+      console.log(response.data);
+      redirect("/alltask");
+      // const { data } = response;
+      // setTitle(data.title);
+      // setDescription(data.description);
+      // setPriority(data.priority);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div>
-      <form className="w-[1100px] mx-auto my-20">
+      <form onSubmit={editTask} className="w-[1100px] mx-auto my-20">
         {/* Title */}
         <div className="w-[1000px] relative">
           <label
@@ -14,6 +64,8 @@ const EditTaskForm = () => {
             Task Title
           </label>
           <input
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
             id="text"
             type="text"
             placeholder="E.g Project Defense, Assignment ..."
@@ -29,6 +81,8 @@ const EditTaskForm = () => {
             Description
           </label>
           <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             id="description"
             placeholder="Briefly describe your task..."
             className="w-[1000px] h-[244px] px-[50px] py-[25px] rounded-[5px] border-[1px] border-[#b8b6b6] text-[22px] font-[400] placeholder-[#cccccc] focus:outline-none "
@@ -43,6 +97,8 @@ const EditTaskForm = () => {
             Tags
           </label>
           <select
+            value={priority}
+            onChange={(e) => setPriority(e.target.value)}
             id="tag"
             className="w-[1000px] h-[84px] px-[50px] border-[1px] border-[#b8b6b6] rounded-[5px] focus:outline-none"
           >
@@ -55,13 +111,16 @@ const EditTaskForm = () => {
           </select>
         </div>
         {/* Button */}
-        <Link to={"/alltask"}>
-          <div className="w-[1000px] hn-[84px] bg-[#974fd0] px-[25px] py-[10px] rounded-[8px] flex justify-center mt-15 cursor-pointer">
-            <button className="text-[35px] font-[500] text-[#faf9fb]">
-              Done
-            </button>
-          </div>
-        </Link>
+        {/* <Link to={"/alltask"}> */}
+        <div className="w-[1000px] hn-[84px] bg-[#974fd0] px-[25px] py-[10px] rounded-[8px] flex justify-center mt-15 cursor-pointer">
+          <button
+            disabled={isSubmitting}
+            className="text-[35px] font-[500] text-[#faf9fb]"
+          >
+            Done
+          </button>
+        </div>
+        {/* </Link> */}
       </form>
     </div>
   );
