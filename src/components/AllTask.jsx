@@ -35,11 +35,13 @@ const AllTask = () => {
   const handleDelete = async (id) => {
     try {
       const response = await axiosInstance.delete(`/task/deleteTask/${id}`);
-      console.log(response);
-      toast.success("Task deleted successfully!");
-      setTimeout(() => {
-        window.location.reload();
-      }, 3000);
+      if (response.status === 201) {
+        console.log(response);
+        toast.success("Task deleted successfully!");
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
+      }
     } catch (error) {
       console.log(error);
     }
