@@ -39,7 +39,7 @@ const NewTask = () => {
       <div className="w-[1083px] mx-auto mt-10">
         <div className="flex items-center justify-between w-[260px]">
           <div className="w-[40px] h-[40px]">
-            <Link to={"/alltask"}>
+            <Link to={"/allTask"}>
               <MdOutlineArrowBackIos
                 className="w-full h-full"
                 color={"#292929"}
