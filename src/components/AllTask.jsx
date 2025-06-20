@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import SusLoader from "./SusLoader.jsx";
 
+
 const AllTask = () => {
   const [isLoading, setIsLoading] = useState(true);
   const redirect = useNavigate();

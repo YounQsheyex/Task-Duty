@@ -5,6 +5,7 @@ import { useState } from "react";
 import { axiosInstance } from "../../utils/axiosIntance";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { ClipLoader } from "react-spinners";
 
 const EditTaskForm = () => {
   const redirect = useNavigate();
@@ -120,7 +121,7 @@ const EditTaskForm = () => {
             disabled={isSubmitting}
             className="text-[35px] font-[500] text-[#faf9fb] cursor-pointer"
           >
-            Done
+            {isSubmitting ? <ClipLoader color="#faf9fb" size={30} /> : "Done"}
           </button>
         </div>
         {/* </Link> */}
