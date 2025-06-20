@@ -42,7 +42,7 @@ const EditTaskForm = () => {
       });
       console.log(response.data);
       toast.success("Task updated successfully!");
-      redirect("/alltask");
+      redirect("/allTask");
       // const { data } = response;
       // setTitle(data.title);
       // setDescription(data.description);
