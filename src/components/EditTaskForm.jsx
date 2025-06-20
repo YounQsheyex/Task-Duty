@@ -49,6 +49,7 @@ const EditTaskForm = () => {
       // setPriority(data.priority);
     } catch (error) {
       console.log(error);
+      toast.error("Task Already Exist With That Title");
     } finally {
       setIsSubmitting(false);
     }

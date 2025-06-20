@@ -2,14 +2,14 @@ import React from "react";
 import BounceLoader from "react-spinners/BounceLoader";
 import logo from "../assets/logo.png";
 
-const SusLoader = ({height}) => {
+const SusLoader = ({ height }) => {
   return (
     <div
       style={{ height: height ? height : "50vh" }}
       className={`flex items-center justify-center`}
     >
       <div className="flex items-center gap-3">
-        <BounceLoader />
+        <BounceLoader color="#974fd0" />
         <div className="flex gap-2 items-center">
           <img src={logo} alt="logo" />
           <div>
