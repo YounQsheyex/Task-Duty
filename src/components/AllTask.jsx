@@ -28,7 +28,9 @@ const AllTask = () => {
       setPriority(data.priority);
       setIsLoading(false);
     } catch (error) {
-      console.log(error);
+      setIsLoading(false);
+      toast.error("No Task Found, Please Create a Task");
+      // console.log(error);
     }
   };
 
